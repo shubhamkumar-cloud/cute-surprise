@@ -76,8 +76,10 @@
   .stage.gone{animation:stageOut .45s .35s forwards;pointer-events:none;}
   @keyframes stageOut{to{opacity:0;visibility:hidden;}}
 
+  /* size unit scales with the screen so the heart fills most of it */
   .big-balloon{
-    position:relative;width:262px;height:312px;
+    position:relative;font-size:clamp(42px,17vmin,82px);
+    width:5em;height:6.4em;
     border:none;background:none;padding:0;cursor:pointer;
     animation:balloonFloat 3.4s ease-in-out infinite;
   }
@@ -86,28 +88,28 @@
   @keyframes popAway{0%{transform:scale(1);opacity:1;}45%{transform:scale(1.32);opacity:1;}100%{transform:scale(1.65);opacity:0;}}
 
   .big-balloon .bheart{
-    position:absolute;top:6px;left:10px;width:242px;height:218px;
-    filter:drop-shadow(0 16px 26px rgba(224,68,122,.55));
+    position:absolute;top:0;left:0;width:5em;height:4.6em;
+    filter:drop-shadow(0 .3em .5em rgba(224,68,122,.55));
   }
   .big-balloon .bheart::before,.big-balloon .bheart::after{
-    content:"";position:absolute;top:0;width:121px;height:194px;
-    border-radius:121px 121px 0 0;
+    content:"";position:absolute;top:0;width:2.5em;height:4em;
+    border-radius:2.5em 2.5em 0 0;
     background:linear-gradient(150deg,#ff9dbd 8%,var(--rose) 45%,var(--rose-deep) 100%);
   }
-  .big-balloon .bheart::before{left:121px;transform:rotate(-45deg);transform-origin:0 100%;}
+  .big-balloon .bheart::before{left:2.5em;transform:rotate(-45deg);transform-origin:0 100%;}
   .big-balloon .bheart::after{left:0;transform:rotate(45deg);transform-origin:100% 100%;}
   .big-balloon .bshine{
-    position:absolute;top:52px;left:64px;width:52px;height:66px;z-index:2;
+    position:absolute;top:1em;left:1.1em;width:1em;height:1.3em;z-index:2;
     background:radial-gradient(closest-side, rgba(255,255,255,.85), transparent 75%);
     border-radius:50%;transform:rotate(-20deg);pointer-events:none;
   }
   .big-balloon .blabel{
-    position:absolute;top:64px;left:0;width:262px;text-align:center;z-index:3;
-    color:#fff;font-weight:900;font-size:1.7rem;line-height:1.05;letter-spacing:.02em;
+    position:absolute;top:1.35em;left:0;width:5em;text-align:center;z-index:3;
+    color:#fff;font-weight:900;font-size:.62em;line-height:1.05;letter-spacing:.02em;
     text-shadow:0 2px 6px rgba(150,20,60,.55);pointer-events:none;
   }
   .big-balloon .bstring{
-    position:absolute;top:214px;left:130px;width:3px;height:92px;z-index:1;
+    position:absolute;top:4.5em;left:2.47em;width:.06em;height:1.9em;z-index:1;
     background:linear-gradient(var(--rose-deep),transparent);border-radius:3px;pointer-events:none;
   }
   .stage .hint{
@@ -204,14 +206,14 @@
   .balloon.r{right:-6%;--rot:10deg;animation-delay:1.35s,2.1s;}
 
   .frame{
-    position:relative;width:min(300px,82%);aspect-ratio:3/4;
+    position:relative;width:min(280px,80%);
     border-radius:26px;overflow:hidden;
     box-shadow:0 22px 50px -18px rgba(224,68,122,.55),
                0 0 0 6px var(--cream), 0 0 0 8px var(--blush);
     opacity:0;transform:rotate(-3deg) scale(.9);
     animation:photoIn .8s .5s cubic-bezier(.34,1.56,.64,1) forwards, floatBob 4s 1.3s ease-in-out infinite;
   }
-  .frame img{width:100%;height:100%;object-fit:cover;display:block;}
+  .frame img{width:100%;height:auto;display:block;}
 
   /* soft heart glow pulsing behind the photo */
   .frame-wrap::before{
